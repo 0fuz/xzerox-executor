@@ -5,7 +5,6 @@ coverage/
 dist/
 tsconfig.schema.json
 tsconfig.schemastore-schema.json
-package-lock.json
 .idea/
 /.vscode/
 docs

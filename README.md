@@ -18,7 +18,7 @@ You don't need to think "how to parallelize jobs" or "how to write thread-safe e
 - Do not execute already processed jobs by file-based *cache* system.
 - Handful functions to look more than browser, android, ios device.
 - Covering by tests in mind. It solves many design problems and makes code more stable.
-
+ 
 # Why nodejs/typescript
 pluses:
 1. Its more web-friendly language. For example JSON workflow is ugly in some strong-typed languages.

@@ -1,3 +1,5 @@
+[](https://coveralls.io/repos/github/0fuz/xzerox-executor/badge.svg?branch=main)
+
 # xzerox-executor
 
 Is a toolkit to simplify writing *parsers*, *scrapers*, *bots* and use HTTPs layer in order with parallel job execution in mind. 

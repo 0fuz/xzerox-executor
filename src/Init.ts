@@ -69,6 +69,9 @@ export class Init {
     }
 
     saveArgsToFile(args: object) {
+        if (!fs.existsSync(this.argsCacheFolder)) {
+            fs.mkdirSync(this.argsCacheFolder)
+        }
         fs.writeFileSync(this.argsCacheFilename, JSON.stringify(args))
     }
 

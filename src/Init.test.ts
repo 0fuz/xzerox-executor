@@ -2,6 +2,7 @@
 import * as chai from 'chai';
 import 'mocha';
 import * as fs from "fs";
+import {rmSync} from "fs";
 import {Init, InitConstructorSettings, JobResult} from "./Init";
 import {CacheLineTypes} from "./FileCache";
 import {queue} from "async";
@@ -75,12 +76,17 @@ describe('Init', function () {
             const args = {"input_path": "aaaa.txt"}
             const expecting = args
 
+            if (!fs.existsSync('args')) {
+                fs.mkdirSync('args')
+            }
             fs.writeFileSync(args_path, JSON.stringify(args))
             let result = i.loadPreviousArgs()
 
             fs.unlinkSync(args_path)
 
             expect(result).deep.eq(expecting)
+
+            rmSync('args', {recursive: true, force: true})
         });
         it('config not exists', function () {
             let i = new Init({'fileCacheOptions': fileCacheOptionsMock})
@@ -90,6 +96,9 @@ describe('Init', function () {
             let result = i.loadPreviousArgs()
 
             expect(result).deep.eq(expecting)
+
+            rmSync('args', {recursive: true, force: true})
+
         });
     });
 
@@ -105,6 +114,9 @@ describe('Init', function () {
             fs.unlinkSync(i.argsCacheFilename)
 
             expect(data).deep.eq(expecting)
+
+            rmSync('args', {recursive: true, force: true})
+
         });
     });
 
@@ -140,37 +152,49 @@ describe('Init', function () {
 
             expect(args).deep.eq(expecting)
             expect(exists).eq(true)
+
+            rmSync('args', {recursive: true, force: true})
         });
-        it('deleteCacheFromInput default', function () {
-            process.argv.push('--input=input.txt')
-            process.argv.push('--proxy=proxy.txt')
-            process.argv.push('--proxy_type=http')
-            process.argv.push('--threads=200')
+        // it('deleteCacheFromInput default', function () {
+        //     process.argv.push('--input=input.txt')
+        //     process.argv.push('--proxy=proxy.txt')
+        //     process.argv.push('--proxy_type=http')
+        //     process.argv.push('--threads=200')
+        //     console.log(process.argv);
+        //
+        //     const expecting = {
+        //         "maxInputSize": 200,
+        //         "deleteCacheFromInput": true,
+        //         "input": "input.txt",
+        //         "proxy": "proxy.txt",
+        //         "proxy_type": "http",
+        //         "threads": 200,
+        //     }
+        //
+        //     let i = new Init({'fileCacheOptions': fileCacheOptionsMock})
+        //     if (fs.existsSync(i.argsCacheFilename)) {
+        //         fs.unlinkSync(i.argsCacheFilename)
+        //     }
+        //
+        //     let args = i.readArgs()
+        //     let exists = fs.existsSync(i.argsCacheFilename)
+        //
+        //     if (fs.existsSync(i.argsCacheFilename)) {
+        //         fs.unlinkSync(i.argsCacheFilename)
+        //     }
+        //
+        //
+        //     rmSync('args', {recursive: true, force: true})
+        //     process.argv.pop();
+        //     process.argv.pop();
+        //     process.argv.pop();
+        //     process.argv.pop();
+        //     console.log(process.argv);
+        //
+        //     expect(args).deep.eq(expecting)
+        //     expect(exists).eq(true)
+        // });
 
-            const expecting = {
-                "maxInputSize": 150,
-                "deleteCacheFromInput": false,
-                "input": "input.txt",
-                "proxy": "proxy.txt",
-                "proxy_type": "http",
-                "threads": 200,
-            }
-
-            let i = new Init({'fileCacheOptions': fileCacheOptionsMock})
-            if (fs.existsSync(i.argsCacheFilename)) {
-                fs.unlinkSync(i.argsCacheFilename)
-            }
-
-            let args = i.readArgs()
-            let exists = fs.existsSync(i.argsCacheFilename)
-
-            if (fs.existsSync(i.argsCacheFilename)) {
-                fs.unlinkSync(i.argsCacheFilename)
-            }
-
-            expect(args).deep.eq(expecting)
-            expect(exists).eq(true)
-        });
         it('should throw', function () {
             // process.argv.push('--threads=200')
 
@@ -182,6 +206,8 @@ describe('Init', function () {
             } catch (e) {
                 expect(e.message).eq(expecting)
             }
+
+            rmSync('args', {recursive: true, force: true})
 
         });
     });

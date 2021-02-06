@@ -44,4 +44,4 @@ Contributing possible by several ways:
 - by discussions page
 
 # License
-MIT License.
+MIT License.  

@@ -50,4 +50,9 @@ Contributing possible by several ways:
 - by discussions page
 
 # License
-MIT License.  
+MIT License.
+
+# TODO
+- Faker.ts coverage
+- quickstart template
+- own user-agent lists usage

@@ -99,6 +99,9 @@ describe('FileCache', function () {
 
             expect(data).eq(expecting)
 
+            rmSync(opts.folder, {recursive: true, force: true})
+
+
         });
 
         it('should throw', function () {
@@ -118,6 +121,9 @@ describe('FileCache', function () {
             } catch (e) {
                 expect(e.message).eq(expecting)
             }
+
+            rmSync(opts.folder, {recursive: true, force: true})
+
         });
     });
 
@@ -141,6 +147,9 @@ describe('FileCache', function () {
             unlinkSync(fc.cachePaths['error'])
 
             expect(data.startsWith(expecting)).true
+
+            rmSync(opts.folder, {recursive: true, force: true})
+
         });
     });
 
@@ -180,6 +189,9 @@ describe('FileCache', function () {
             let result = await fc.removeDataByCacheFile(lines, key)
 
             expect(result).deep.eq(expecting)
+
+            rmSync(opts.folder, {recursive: true, force: true})
+
         });
 
         it('should work CacheLineTypes.data_data #2', async function () {
@@ -220,6 +232,9 @@ describe('FileCache', function () {
             let result = await fc.removeDataByCacheFile(lines, key)
 
             expect(result).deep.eq(expecting)
+
+            rmSync(opts.folder, {recursive: true, force: true})
+
         });
 
         it('should work CacheLineTypes.info_data', async function () {
@@ -262,6 +277,9 @@ describe('FileCache', function () {
             let result = await fc.removeDataByCacheFile(lines, key)
 
             expect(result).deep.eq(expecting)
+
+            rmSync(opts.folder, {recursive: true, force: true})
+
         });
 
         it('should work CacheLineTypes.info_data_data', async function () {
@@ -360,6 +378,9 @@ describe('FileCache', function () {
             let result = await fc.removeDataByCacheFile(lines, key)
 
             expect(result).deep.eq(expecting)
+
+            rmSync(opts.folder, {recursive: true, force: true})
+
         });
     });
 
@@ -406,6 +427,9 @@ describe('FileCache', function () {
             let result = await fc.removeAll(lines)
 
             expect(result).deep.eq(expecting)
+
+            rmSync(opts.folder, {recursive: true, force: true})
+
         });
 
         it('should throw', async function () {
@@ -430,6 +454,9 @@ describe('FileCache', function () {
             } catch (e) {
                 expect(e.message).eq(expecting)
             }
+
+            rmSync(opts.folder, {recursive: true, force: true})
+
         });
     });
 });

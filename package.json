@@ -8,13 +8,17 @@
     "cover": "nyc npm run test",
     "cover-ci": "nyc --reporter=lcov npm run test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0fuz/xzerox-executor.git"
+  },
   "keywords": [],
   "author": "0fuz",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/0fuz/xzerox-executor"
+  "bugs": {
+    "url": "https://github.com/0fuz/xzerox-executor/issues"
   },
+  "homepage": "https://github.com/0fuz/xzerox-executor#readme",
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/chai-http": "^4.2.0",

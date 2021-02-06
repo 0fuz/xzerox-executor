@@ -1,0 +1,13 @@
+/node_modules/
+/tests/node_modules/
+.nyc_output/
+coverage/
+dist/
+tsconfig.schema.json
+tsconfig.schemastore-schema.json
+package-lock.json
+.idea/
+/.vscode/
+docs
+args
+results

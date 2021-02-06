@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.test.ts",
-    "cover": "nyc npm run test"
+    "cover": "nyc npm run test",
+    "cover-ci": "nyc --reporter=lcov npm run test"
   },
   "keywords": [],
   "author": "0fuz",
@@ -61,6 +62,6 @@
       "text",
       "text-summary"
     ],
-    "report-dir": "docs/reports/coverage"
+    "report-dir": "coverage"
   }
 }

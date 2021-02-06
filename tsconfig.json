@@ -1,0 +1,25 @@
+{
+  "ts-node": {
+    "transpileOnly": true
+  },
+  "compilerOptions": {
+    "target": "ES2020",
+    //    "lib": ["es2015", "dom"],
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "inlineSources": true,
+    "types": [
+      "node",
+      "mocha"
+    ],
+    "stripInternal": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

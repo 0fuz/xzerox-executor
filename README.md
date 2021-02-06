@@ -31,6 +31,12 @@ minuses:
 3. If you are far from async/await/promises it might look strange first times.
 
 
+# Hot to run tests?
+```
+npm i -D
+npm run cover
+```
+
 # Supported platforms
 Windows/Linux/MacOs.
 

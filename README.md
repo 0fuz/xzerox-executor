@@ -1,4 +1,4 @@
-[](https://coveralls.io/repos/github/0fuz/xzerox-executor/badge.svg?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/0fuz/xzerox-executor/badge.svg?branch=main)](https://coveralls.io/github/0fuz/xzerox-executor?branch=main)
 
 # xzerox-executor
 

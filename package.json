@@ -1,15 +1,19 @@
 {
-  "name": "x0x-executor",
+  "name": "xzerox-executor",
   "version": "1.0.0",
-  "description": "",
+  "description": "Is a toolkit to simplify writing parsers, scrapers, bots and use HTTPs layer in order with parallel job execution in mind.",
   "main": "index.js",
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.test.ts",
     "cover": "nyc npm run test"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "0fuz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0fuz/xzerox-executor"
+  },
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/chai-http": "^4.2.0",

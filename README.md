@@ -16,6 +16,8 @@ You don't need to think "how to parallelize jobs" or "how to write thread-safe e
 
 ## Highlights
 
+- [Install](#install)
+- [Quickstart](#quickstart)
 - [Features](#features)
 - [Why nodejs/typescript](#why-nodejstypescript)
 - [How to run tests?](#how-to-run-tests)
@@ -27,12 +29,13 @@ You don't need to think "how to parallelize jobs" or "how to write thread-safe e
 ## Install
 
 ```
-$ npm install xzerox-executor
+npm install -g typescript ts-node
+npm install xzerox-executor --save
 ```
 
-## Usage
+### Quickstart
 
-*todo quickstart example*
+Read quickstart here [xzerox-executor-quickstart](https://github.com/0fuz/xzerox-executor-quickstart)
 
 ### Features
 - Http/Https proxy support
@@ -78,5 +81,4 @@ MIT License.
 
 ### TODO
 - Faker.ts coverage
-- quickstart template
 - own user-agent lists usage

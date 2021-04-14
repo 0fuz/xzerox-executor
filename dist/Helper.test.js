@@ -29,9 +29,9 @@ describe('Helper', () => {
             let result = Helper_1.isValidUrl(input);
             expect(result).eq(expecting);
         });
-        it('should detect valid url #4', function () {
+        it('should detect invalid url #4', function () {
             let input = 'ws://localhost:1234/test';
-            let expecting = true;
+            let expecting = false;
             let result = Helper_1.isValidUrl(input);
             expect(result).eq(expecting);
         });

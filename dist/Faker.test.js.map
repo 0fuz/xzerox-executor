@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "Faker.test.js",
+  "sourceRoot": "",
+  "sources": [
+    "../src/Faker.test.ts"
+  ],
+  "names": [],
+  "mappings": ";AAAA,OAAO"
+}

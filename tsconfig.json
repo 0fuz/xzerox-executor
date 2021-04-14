@@ -11,7 +11,6 @@
     "moduleResolution": "node",
     "strict": true,
     "declaration": true,
-    "inlineSources": true,
     "sourceMap": true,
     "types": [
       "node",

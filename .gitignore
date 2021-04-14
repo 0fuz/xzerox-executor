@@ -2,7 +2,6 @@
 /tests/node_modules/
 .nyc_output/
 coverage/
-dist/
 tsconfig.schema.json
 tsconfig.schemastore-schema.json
 .idea/

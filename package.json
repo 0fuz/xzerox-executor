@@ -1,8 +1,9 @@
 {
   "name": "xzerox-executor",
-  "version": "1.0.2",
-  "description": "Is a toolkit to simplify writing parsers, scrapers, bots and use HTTPs layer in order with parallel job execution in mind.",
-  "main": "./dist/index.ts",
+  "version": "1.0.3",
+  "description": "Toolkit to simplify writing parsers, scrapers, bots and use HTTPs layer in order with parallel job execution in mind.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "mocha -r ts-node/register src/**/*.test.ts",
@@ -13,7 +14,14 @@
     "type": "git",
     "url": "git+https://github.com/0fuz/xzerox-executor.git"
   },
-  "keywords": [],
+  "keywords": [
+    "bot",
+    "automator",
+    "http",
+    "browser",
+    "parallel",
+    "helpers"
+  ],
   "author": "0fuz",
   "license": "MIT",
   "bugs": {

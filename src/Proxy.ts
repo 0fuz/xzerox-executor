@@ -56,7 +56,8 @@ export class Proxy {
             let proxy = proxies[i];
             if (!proxy.startsWith('http')) {
                 if (type === 'http' || type === 'https') {
-                    proxy = type + '://' + proxy;
+                    proxy = 'http' + '://' + proxy;
+                    // proxy = type + '://' + proxy;
                 } else {
                     proxy = 'http://' + proxy;
                 }

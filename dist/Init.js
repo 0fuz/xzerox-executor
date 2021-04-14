@@ -13,7 +13,6 @@ var JobResult;
     JobResult[JobResult["Recheck"] = 0] = "Recheck";
     JobResult[JobResult["Error"] = -1] = "Error";
 })(JobResult = exports.JobResult || (exports.JobResult = {}));
-
 class Init {
     constructor(opts) {
         this.opts = opts;
@@ -37,7 +36,6 @@ class Init {
             this.argsCacheFilename = `${this.argsCacheFolder}/${opts.fileCacheOptions.project}.json`;
         }
     }
-
     loadPreviousArgs() {
         if (!fs.existsSync(this.argsCacheFolder)) {
             fs.mkdirSync(this.argsCacheFolder);
@@ -48,14 +46,12 @@ class Init {
         let data = fs.readFileSync(this.argsCacheFilename, 'utf8');
         return JSON.parse(data);
     }
-
     saveArgsToFile(args) {
         if (!fs.existsSync(this.argsCacheFolder)) {
             fs.mkdirSync(this.argsCacheFolder);
         }
         fs.writeFileSync(this.argsCacheFilename, JSON.stringify(args));
     }
-
     readArgs() {
         let cache = {};
         if (this.opts.fileCacheOptions.cache) {
@@ -206,6 +202,5 @@ class Init {
         metric.stopInterval();
     }
 }
-
 exports.Init = Init;
 //# sourceMappingURL=Init.js.map

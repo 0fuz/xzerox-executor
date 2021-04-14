@@ -6,7 +6,6 @@ var InputHandlerConstant;
 (function (InputHandlerConstant) {
     InputHandlerConstant["data_data"] = "data:data";
 })(InputHandlerConstant = exports.InputHandlerConstant || (exports.InputHandlerConstant = {}));
-
 function parseDataData(line) {
     let d1 = line.indexOf(';');
     let d2 = line.indexOf(':');
@@ -24,9 +23,7 @@ function parseDataData(line) {
     let right = line.substring(line.indexOf(delimiter) + 1);
     return [left, right];
 }
-
 exports.parseDataData = parseDataData;
-
 class Input {
     constructor(inputLineHandler = InputHandlerConstant.data_data) {
         this.inputLineHandler = inputLineHandler;
@@ -34,7 +31,6 @@ class Input {
             throw Error('invalid inputLineHandler');
         }
     }
-
     // parses inputFileLines with specified options.
     makeJobs(inputLines) {
         let results = [];
@@ -57,7 +53,6 @@ class Input {
         }
         return results;
     }
-
     async load(path, maxFileSizeMB = 200) {
         if (Helper_1.isValidUrl(path)) {
             let inputLines = await Helper_1.loadUrl(path);
@@ -70,6 +65,5 @@ class Input {
         }
     }
 }
-
 exports.Input = Input;
 //# sourceMappingURL=Input.js.map

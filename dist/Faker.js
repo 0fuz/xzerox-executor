@@ -64,15 +64,12 @@ exports.AndroidVersionAndSdk = {
     '10.0': '29',
     '11': '30',
 };
-
 class Faker {
     constructor() {
     }
-
     _random(arr) {
         return arr[lodash_1.random(0, arr.length - 1)];
     }
-
     /**
      * @return {{brand, name, device, model}[]}
      */
@@ -82,7 +79,6 @@ class Faker {
         }
         return this.androidDevicesList.deviceList();
     }
-
     createAndroidDevice() {
         let d = this._random(this.androidDevices());
         let [version, sdk] = this.generateAndroidVersion();
@@ -101,11 +97,9 @@ class Faker {
             size: this._random(exports.PhoneResolution)
         };
     }
-
     androidVersion(minVersion = 4, maxVersion = 12) {
         return `${lodash_1.random(minVersion, maxVersion)}.${lodash_1.random(0, 9)}.${lodash_1.random(0, 9)}`;
     }
-
     generateAndroidVersion() {
         let list = exports.AndroidVersionAndSdk;
         let keys = Object.keys(list);
@@ -113,11 +107,9 @@ class Faker {
         // @ts-ignore
         return [v, list[v]];
     }
-
     iosVersion(minVersion = 11, maxVersion = 12) {
         return [lodash_1.random(minVersion, maxVersion), lodash_1.random(0, 1), lodash_1.random(1, 4)].join('.');
     }
-
     createIosDevice() {
         let d = this._random(exports.IosDevices);
         return {
@@ -132,7 +124,6 @@ class Faker {
             size: this._random(exports.PhoneResolution)
         };
     }
-
     generateBrowserResolution() {
         let a = this._random(exports.BrowserResolution);
         let r = lodash_1.random(0.9, 1.05);
@@ -140,7 +131,6 @@ class Faker {
         a[1] = parseInt(String(a[1] * r));
         return a;
     }
-
     /**
      * Checks does given object contains all needed keys
      *
@@ -167,6 +157,5 @@ class Faker {
         return true;
     }
 }
-
 exports.Faker = Faker;
 //# sourceMappingURL=Faker.js.map

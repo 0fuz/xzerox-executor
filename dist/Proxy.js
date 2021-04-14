@@ -22,12 +22,10 @@ exports.DefaultProxyHPagentSettings = {
     maxFreeSockets: 256,
     proxy: '' // http://a:p@domain:port
 };
-
 class Proxy {
     constructor(hpagent_config = exports.DefaultProxyHPagentSettings) {
         this.hpagent_config = hpagent_config;
     }
-
     /**
      *
      * @param proxies
@@ -87,13 +85,11 @@ class Proxy {
         }
         return agents;
     }
-
     makeAgentsObject(agents) {
         return agents.map((agent) => {
             return {agent, isBusy: false};
         });
     }
-
     async load(path, type) {
         if (Helper_1.isValidUrl(path)) {
             let proxies = await Helper_1.loadUrl(path);
@@ -108,15 +104,12 @@ class Proxy {
         }
     }
 }
-
 exports.Proxy = Proxy;
-
 class AgentManager {
     constructor(agents) {
         this.agents = agents;
         this.agentIndex = 0;
     }
-
     async getFree() {
         if (this.agentIndex === this.agents.length)
             this.agentIndex = 0;
@@ -127,13 +120,11 @@ class AgentManager {
         this.agents[this.agentIndex].isBusy = true;
         return [this.agentIndex, this.agents[this.agentIndex].agent];
     }
-
     setFree(index) {
         if (index >= this.agents.length)
             return;
         this.agents[index].isBusy = false;
     }
 }
-
 exports.AgentManager = AgentManager;
 //# sourceMappingURL=Proxy.js.map

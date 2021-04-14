@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", {value: true});
 exports.isItUsualError = exports.isBadProxyError = exports.hasKey = exports.parse = void 0;
-
 function parse(source, start, end) {
     if (!source.length ||
         source.indexOf(start) === -1 ||
@@ -12,9 +11,7 @@ function parse(source, start, end) {
     let endPos = secondSource.indexOf(end);
     return secondSource.substring(0, endPos);
 }
-
 exports.parse = parse;
-
 /**
  * Checks does given object contains all needed nested keys
  *
@@ -42,9 +39,7 @@ function hasKey(object, keys) {
     }
     return true;
 }
-
 exports.hasKey = hasKey;
-
 function isBadProxyError(e) {
     if (!e || !e.message)
         return false;
@@ -65,9 +60,7 @@ function isBadProxyError(e) {
         || e.message.indexOf('wrong version ') !== -1
         || e.message.indexOf('timeout') !== -1;
 }
-
 exports.isBadProxyError = isBadProxyError;
-
 function isItUsualError(e, metric) {
     if (!e || !e.message) {
         return false;
@@ -82,6 +75,5 @@ function isItUsualError(e, metric) {
     }
     return false;
 }
-
 exports.isItUsualError = isItUsualError;
 //# sourceMappingURL=HttpHelper.js.map

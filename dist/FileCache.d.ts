@@ -5,11 +5,9 @@ export declare enum CacheLineTypes {
     info_data_data = "info | data | data",
     skip = -1
 }
-
 export interface CacheSettings {
     [key: string]: CacheLineTypes;
 }
-
 export declare type FileCacheOptions = {
     project: string;
     folder: string;
@@ -24,24 +22,16 @@ export declare type RemoveResult = {
     removed: number;
 };
 export declare type FilePath = string;
-
 export interface CachePaths {
     [key: string]: FilePath;
 }
-
 export declare class FileCache {
     opts: FileCacheOptions;
     cachePaths: CachePaths;
-
     constructor(opts: FileCacheOptions);
-
     shortNamesToPaths(opts: FileCacheOptions): CachePaths;
-
     save(shortName: string, data: string): void;
-
     saveError(error: Error): void;
-
     removeDataByCacheFile(lines: string[][], key: string): Promise<RemoveResult>;
-
     removeAll(lines: string[][]): Promise<string[][]>;
 }

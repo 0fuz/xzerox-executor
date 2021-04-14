@@ -6,7 +6,6 @@
 import {Metric} from "./Metric";
 
 export declare function parse(source: string, start: string, end: string): string;
-
 /**
  * Checks does given object contains all needed nested keys
  *
@@ -19,7 +18,5 @@ export declare function parse(source: string, start: string, end: string): strin
  * @return {boolean}
  */
 export declare function hasKey(object: any, keys: string): boolean;
-
 export declare function isBadProxyError(e: Error): boolean;
-
 export declare function isItUsualError(e: Error, metric: Metric): boolean;

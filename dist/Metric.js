@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", {value: true});
 exports.Metric = void 0;
 const got_1 = require("got");
-
 class Metric {
     constructor(defaultKeys = []) {
         this.metric = {};
@@ -14,25 +13,21 @@ class Metric {
         }
         this.interval = null;
     }
-
     has(key) {
         return this.metric[key] !== undefined;
     }
-
     inc(key, value = 1) {
         if (this.metric[key] === undefined) {
             this.metric[key] = 0;
         }
         this.metric[key] += value;
     }
-
     set(key, value = 1) {
         if (this.metric[key] === undefined) {
             this.metric[key] = 0;
         }
         this.metric[key] = value;
     }
-
     _interval(left, callbackUrl = '') {
         let metric = Object.assign({left: left}, this.metric);
         console.log(JSON.stringify(metric));
@@ -43,18 +38,15 @@ class Metric {
             });
         }
     }
-
     startInterval(calculateLeftCb, interval = 5000, callbackUrl = '') {
         this._interval(calculateLeftCb(), callbackUrl);
         this.interval = setInterval(() => {
             this._interval(calculateLeftCb(), callbackUrl);
         }, interval);
     }
-
     stopInterval() {
         clearInterval(this.interval);
     }
 }
-
 exports.Metric = Metric;
 //# sourceMappingURL=Metric.js.map

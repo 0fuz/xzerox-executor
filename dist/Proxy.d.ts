@@ -4,7 +4,6 @@ declare type AgentObject = {
     agent: any;
     isBusy: boolean;
 };
-
 export declare enum ProxyType {
     'http' = "http",
     'https' = "https",
@@ -14,7 +13,6 @@ export declare enum ProxyType {
     'any' = "any",
     'sticky' = "sticky"
 }
-
 export declare type HPagent = {
     keepAlive: boolean;
     keepAliveMsecs: number;
@@ -23,33 +21,23 @@ export declare type HPagent = {
     proxy: string;
 };
 export declare const DefaultProxyHPagentSettings: HPagent;
-
 export declare class Proxy {
     hpagent_config: HPagent;
-
     constructor(hpagent_config?: HPagent);
-
     /**
      *
      * @param proxies
      * @param type      http|https
      */
     makeAgents(proxies: string[], type: string): (HttpProxyAgent | HttpsProxyAgent)[];
-
     makeAgentsObject(agents: any[]): AgentObject[];
-
     load(path: string, type: string): Promise<AgentObject[]>;
 }
-
 export declare class AgentManager {
     agents: AgentObject[];
     agentIndex: number;
-
     constructor(agents: AgentObject[]);
-
     getFree(): Promise<any[]>;
-
     setFree(index: number): void;
 }
-
 export {};

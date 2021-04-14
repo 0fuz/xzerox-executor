@@ -22,19 +22,14 @@ export declare const AndroidVersionAndSdk: {
     '10.0': string;
     '11': string;
 };
-
 export declare class Faker {
     androidDevicesList: any;
-
     constructor();
-
     _random(arr: any[]): any;
-
     /**
      * @return {{brand, name, device, model}[]}
      */
     androidDevices(): any;
-
     createAndroidDevice(): {
         version: string;
         sdk: string;
@@ -49,13 +44,9 @@ export declare class Faker {
         ts: number;
         size: any;
     };
-
     androidVersion(minVersion?: number, maxVersion?: number): string;
-
     generateAndroidVersion(): string[];
-
     iosVersion(minVersion?: number, maxVersion?: number): string;
-
     createIosDevice(): {
         iosV: string;
         name: any;
@@ -67,9 +58,7 @@ export declare class Faker {
         ts: number;
         size: any;
     };
-
     generateBrowserResolution(): any;
-
     /**
      * Checks does given object contains all needed keys
      *

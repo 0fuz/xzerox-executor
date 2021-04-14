@@ -15,7 +15,6 @@ var CacheLineTypes;
     CacheLineTypes["info_data_data"] = "info | data | data";
     CacheLineTypes[CacheLineTypes["skip"] = -1] = "skip";
 })(CacheLineTypes = exports.CacheLineTypes || (exports.CacheLineTypes = {}));
-
 class FileCache {
     constructor(opts) {
         this.opts = opts;
@@ -29,7 +28,6 @@ class FileCache {
         opts.cache['error'] = CacheLineTypes.skip;
         this.cachePaths = this.shortNamesToPaths(opts);
     }
-
     shortNamesToPaths(opts) {
         let namePath = {};
         const dirPath = process.cwd() + `/${opts.folder}`;
@@ -48,18 +46,15 @@ class FileCache {
         }
         return namePath;
     }
-
     save(shortName, data) {
         if (!this.cachePaths[shortName]) {
             throw Error('unknown name');
         }
         fs.appendFileSync(this.cachePaths[shortName], data + '\n');
     }
-
     saveError(error) {
         this.save('error', error.message + '\n' + error.stack + '\n\n');
     }
-
     async removeDataByCacheFile(lines, key) {
         if (!this.cachePaths[key] || !this.opts.cache[key]) {
             throw Error(`key not exists: ${key}`);
@@ -163,7 +158,6 @@ class FileCache {
         result.removed = result.size.before - result.size.after;
         return result;
     }
-
     async removeAll(lines) {
         if (!Object.keys(this.cachePaths).length || !Object.keys(this.opts.cache).length) {
             throw Error('Not enough required arguments');
@@ -179,6 +173,5 @@ class FileCache {
         return lines;
     }
 }
-
 exports.FileCache = FileCache;
 //# sourceMappingURL=FileCache.js.map

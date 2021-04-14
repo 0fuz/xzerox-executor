@@ -1,10 +1,10 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.AgentManager = exports.Proxy = exports.DefaultProxyHPagentSettings = exports.ProxyType = void 0;
 // @tg-ignore
 const hpagent_1 = require("hpagent");
 const Helper_1 = require("./Helper");
-const {URL} = require('url');
+const { URL } = require('url');
 var ProxyType;
 (function (ProxyType) {
     ProxyType["http"] = "http";
@@ -39,7 +39,8 @@ class Proxy {
             if (!proxy.startsWith('http')) {
                 if (type === 'http' || type === 'https') {
                     proxy = type + '://' + proxy;
-                } else {
+                }
+                else {
                     proxy = 'http://' + proxy;
                 }
             }
@@ -79,7 +80,8 @@ class Proxy {
                 if (agent) {
                     agents.push(agent);
                 }
-            } catch (e) {
+            }
+            catch (e) {
                 // invalid lines ll be omitted
             }
         }
@@ -87,7 +89,7 @@ class Proxy {
     }
     makeAgentsObject(agents) {
         return agents.map((agent) => {
-            return {agent, isBusy: false};
+            return { agent, isBusy: false };
         });
     }
     async load(path, type) {
@@ -95,11 +97,13 @@ class Proxy {
             let proxies = await Helper_1.loadUrl(path);
             let agents = this.makeAgents(proxies, type);
             return this.makeAgentsObject(agents);
-        } else if (Helper_1.isValidFilepath(path)) {
+        }
+        else if (Helper_1.isValidFilepath(path)) {
             let proxies = await Helper_1.loadFile(path);
             let agents = this.makeAgents(proxies, type);
             return this.makeAgentsObject(agents);
-        } else {
+        }
+        else {
             throw Error('Invalid proxy_path');
         }
     }

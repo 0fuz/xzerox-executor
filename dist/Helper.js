@@ -5,6 +5,9 @@ const fs = require("fs");
 const got_1 = require("got");
 const {URL} = require('url');
 function isValidUrl(url) {
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        return false;
+    }
     try {
         (new URL(url));
         return true;

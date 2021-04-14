@@ -47,6 +47,12 @@ describe('Helper', () => {
             let result = Helper_1.isValidUrl(input);
             expect(result).eq(expecting);
         });
+        it('should detect invalid url #2', function () {
+            let input = 'C:\\123\\123.txt';
+            let expecting = false;
+            let result = Helper_1.isValidUrl(input);
+            expect(result).eq(expecting);
+        });
     });
     describe('isValidFilepath', function () {
         it('should detect valid filepath #1', function () {

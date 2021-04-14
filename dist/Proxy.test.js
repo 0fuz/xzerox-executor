@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", {value: true});
+Object.defineProperty(exports, "__esModule", { value: true });
 // import app from './app';
 const chai = require("chai");
 require("mocha");
@@ -35,7 +35,7 @@ describe('Proxy', function () {
             // as we saw, this method is faster a lot
             console.time(v2);
             for (let i = 0; i < steps; i++) {
-                array.push({s: i + 'should return response on call', free: true});
+                array.push({ s: i + 'should return response on call', free: true });
             }
             for (let i = 0; i < array.length; i++) {
                 array[i].free = false;
@@ -143,8 +143,8 @@ describe('Proxy', function () {
         it('should work', function () {
             const agents = [1, 2]; // its not original agent type
             const expecting = [
-                {agent: 1, isBusy: false},
-                {agent: 2, isBusy: false}
+                { agent: 1, isBusy: false },
+                { agent: 2, isBusy: false }
             ];
             let p = new Proxy_1.Proxy();
             let result = p.makeAgentsObject(agents);
@@ -190,7 +190,8 @@ describe('Proxy', function () {
             let p = new Proxy_1.Proxy();
             try {
                 await p.load(path, type);
-            } catch (e) {
+            }
+            catch (e) {
                 expect(e.message).eq('Invalid proxy_path');
             }
         });

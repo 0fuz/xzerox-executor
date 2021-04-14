@@ -1,6 +1,6 @@
 {
   "name": "xzerox-executor",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Toolkit to simplify writing parsers, scrapers, bots and use HTTPs layer in order with parallel job execution in mind.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

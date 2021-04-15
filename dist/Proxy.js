@@ -38,7 +38,8 @@ class Proxy {
             let proxy = proxies[i];
             if (!proxy.startsWith('http')) {
                 if (type === 'http' || type === 'https') {
-                    proxy = type + '://' + proxy;
+                    proxy = 'http' + '://' + proxy;
+                    // proxy = type + '://' + proxy;
                 }
                 else {
                     proxy = 'http://' + proxy;
@@ -115,10 +116,11 @@ class AgentManager {
         this.agentIndex = 0;
     }
     async getFree() {
-        if (this.agentIndex === this.agents.length)
-            this.agentIndex = 0;
         while (!this.agents[this.agentIndex] || this.agents[this.agentIndex].isBusy) {
             this.agentIndex++;
+            if (this.agentIndex >= this.agents.length) {
+                this.agentIndex = 0;
+            }
             await Helper_1.timeout(100);
         }
         this.agents[this.agentIndex].isBusy = true;

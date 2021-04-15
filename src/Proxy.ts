@@ -145,10 +145,12 @@ export class AgentManager {
     }
 
     async getFree() {
-        if (this.agentIndex === this.agents.length) this.agentIndex = 0
 
         while (!this.agents[this.agentIndex] || this.agents[this.agentIndex].isBusy) {
             this.agentIndex++
+            if (this.agentIndex >= this.agents.length) {
+                this.agentIndex = 0
+            }
             await timeout(100)
         }
 

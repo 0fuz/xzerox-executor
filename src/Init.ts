@@ -242,10 +242,6 @@ export class Init {
                     await q.push(task);
                 }
 
-                if (result === undefined) {
-                    await q.push(task);
-                }
-
                 agentManager.setFree(p)
 
             } catch (e) {

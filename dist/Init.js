@@ -184,9 +184,6 @@ class Init {
                 if (result !== JobResult.Finished) {
                     await q.push(task);
                 }
-                if (result === undefined) {
-                    await q.push(task);
-                }
                 agentManager.setFree(p);
             } catch (e) {
                 console.error(e);

@@ -34,6 +34,7 @@ export class Input {
     // parses inputFileLines with specified options.
     makeJobs(inputLines: string[]): string[][] {
         let results = [];
+        let delimiterNotFound = 0;
 
         for (let i = 0; i < inputLines.length; i++) {
             const inputLine = inputLines[i];
@@ -49,11 +50,23 @@ export class Input {
             }
 
             if (this.inputLineHandler === 'data:data') {
-                results.push(parseDataData(inputLine))
+                try {
+                    results.push(parseDataData(inputLine))
+                } catch (e) {
+                    if (e.message.includes('Delimiter not found')) {
+                        delimiterNotFound++;
+                    } else {
+                        throw e
+                    }
+                }
                 continue
             }
 
             throw new Error('Unknown inputLineHandler')
+        }
+
+        if (delimiterNotFound > 0) {
+            console.log('delimiterNotFound: ', delimiterNotFound)
         }
 
         return results

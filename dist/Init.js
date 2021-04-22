@@ -18,6 +18,7 @@ class Init {
         this.opts = opts;
         this.argsCacheFilename = 'args/args_cache.json';
         this.argsCacheFolder = 'args';
+        this.fileCacheClass = FileCache_1.FileCache; // possible to replace it with own class
         if (!opts) {
             throw Error('Not enough required arguments');
         }
@@ -159,7 +160,7 @@ class Init {
                 // use fileCache to store job results into file by shortName
                 // use metric to make calculation of job results
                 beforeJobHandler, jobHandler) {
-        let fileCache = new FileCache_1.FileCache(this.opts.fileCacheOptions);
+        let fileCache = new this.fileCacheClass(this.opts.fileCacheOptions);
         let metric = new Metric_1.Metric(this.opts.defaultMetricKeys);
         let inputClass = new Input_1.Input(this.opts.inputLineHandler);
         let proxyClass = new Proxy_1.Proxy(this.opts.proxyHPagent);

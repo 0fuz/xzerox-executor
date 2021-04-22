@@ -33,6 +33,7 @@ export type InitConstructorSettings = {
 export class Init {
     public argsCacheFilename = 'args/args_cache.json'
     public argsCacheFolder = 'args'
+    public fileCacheClass: any | FileCache = FileCache // possible to replace it with own class
 
     constructor(public opts: InitConstructorSettings) {
         if (!opts) {
@@ -204,7 +205,7 @@ export class Init {
                 ) => Promise<void>,
                 jobHandler: (data: string[], agent: any) => Promise<JobResult>) {
 
-        let fileCache = new FileCache(this.opts.fileCacheOptions)
+        let fileCache = new this.fileCacheClass(this.opts.fileCacheOptions)
         let metric = new Metric(this.opts.defaultMetricKeys)
 
         let inputClass = new Input(this.opts.inputLineHandler)

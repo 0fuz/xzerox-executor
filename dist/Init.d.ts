@@ -28,6 +28,7 @@ export declare class Init {
     opts: InitConstructorSettings;
     argsCacheFilename: string;
     argsCacheFolder: string;
+    fileCacheClass: any | FileCache;
     constructor(opts: InitConstructorSettings);
     loadPreviousArgs(): object | null;
     saveArgsToFile(args: object): void;
